@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// observe is set a subscription and watch for state changes 
 import { observe } from './components/Game';
 
 observe(knightPosition => {

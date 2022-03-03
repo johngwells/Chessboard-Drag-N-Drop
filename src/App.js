@@ -8,7 +8,7 @@ function handleClick(toX, toY) {
   moveKnight(toX, toY);
 }
 
-// App.js will be the board of the game
+// creates the board of the game
 function renderSquare(i, [knightX, knightY]) {
   const x = i % 8;
   const y = Math.floor(i / 8);

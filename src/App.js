@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import Knight from './components/Knight';
+import Square from './components/square';
+
+// App.js will be the board of the game
+function renderSquare(i, [knightX, knightY]) {
+  const x = i % 8;
+  const y = Math.floor(i / 8);
+  const black = (x + y) % 2 === 0;
+  const isKnightHere = x === knightX && y === knightY;
+  const piece = isKnightHere ? <Knight /> : null;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div key={i} style={{ width: '10vw', height: '10vh' }}>
+      <Square black={black}>{piece}</Square>
     </div>
   );
 }
 
-export default App;
+export default function App({ knightPosition }) {
+  const squares = [];
+  for (let i = 0; i < 64; i++) {
+    squares.push(renderSquare(i, knightPosition))
+  }
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        width: '50%',
+        height: '100%'
+      }}
+    >
+    {squares}
+      {/* {squares.map(el => (
+        
+        <div>{el.props.children}</div>
+
+      ))} */}
+    </div>
+  );
+}

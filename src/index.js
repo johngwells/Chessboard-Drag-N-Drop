@@ -4,12 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App knightPosition={[1, 0]}/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { observe } from './helpers/helpers';
+
+observe(knightPosition => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <App knightPosition={knightPosition} />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

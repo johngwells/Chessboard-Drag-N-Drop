@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import { observe } from './helpers/helpers';
+import { observe } from './components/Game';
 
 observe(knightPosition => {
   ReactDOM.render(

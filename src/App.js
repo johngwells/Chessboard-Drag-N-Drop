@@ -1,7 +1,12 @@
 import './App.css';
+import { moveKnight } from './components/Game';
 
 import Knight from './components/Knight';
 import Square from './components/square';
+
+function handleClick(toX, toY) {
+  moveKnight(toX, toY);
+}
 
 // App.js will be the board of the game
 function renderSquare(i, [knightX, knightY]) {
@@ -12,7 +17,7 @@ function renderSquare(i, [knightX, knightY]) {
   const piece = isKnightHere ? <Knight /> : null;
 
   return (
-    <div key={i} style={{ flex: '1 0 12%',  width: '12.5vw', height: '12.5vh' }}>
+    <div onClick={() => handleClick(x, y)} key={i} style={{ flex: '1 0 12%',  width: '12.5vw', height: '12.5vh' }}>
       <Square black={black}>{piece}</Square>
     </div>
   );
@@ -34,7 +39,6 @@ export default function App({ knightPosition }) {
       }}
     >
     {squares}
-      {console.log(squares.length)}
     </div>
   );
 }

@@ -1,3 +1,3 @@
 export default function Knight() {
-  return <span>♘</span>
+  return <span style={{ fontSize: '3.5rem' }}>♘</span>
 }

@@ -12,7 +12,7 @@ function renderSquare(i, [knightX, knightY]) {
   const piece = isKnightHere ? <Knight /> : null;
 
   return (
-    <div key={i} style={{ flex: '1 0 12%',  width: '10vw', height: '10vh' }}>
+    <div key={i} style={{ flex: '1 0 12%',  width: '12.5vw', height: '12.5vh' }}>
       <Square black={black}>{piece}</Square>
     </div>
   );

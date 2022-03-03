@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App knightPosition={[0, 0]}/>
+    <App knightPosition={[1, 0]}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

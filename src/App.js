@@ -1,11 +1,18 @@
-import './App.css';
-import { moveKnight } from './components/Game';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
+import { canMoveKnight, moveKnight } from './components/Game';
 
 import Knight from './components/Knight';
 import Square from './components/square';
 
+import './App.css'
+
 function handleClick(toX, toY) {
-  moveKnight(toX, toY);
+  console.log({ toX, toY })
+  if (canMoveKnight(toX, toY)) {
+    moveKnight(toX, toY);
+  }
 }
 
 // creates the board of the game

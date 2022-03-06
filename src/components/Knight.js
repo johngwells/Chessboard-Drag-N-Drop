@@ -7,7 +7,7 @@ const knightStyle = {
   alignItems: 'center',
   height: '100%',
   width: '100%',
-  fontSize: '7rem'
+  fontSize: '7rem',
 }
 
 export default function Knight() {
@@ -16,7 +16,7 @@ export default function Knight() {
     collect: monitor => ({
       isDragging: !!monitor.isDragging()
     })
-  }));
+  }), []);
 
   return (
     <div
@@ -24,6 +24,7 @@ export default function Knight() {
       style={{
         ...knightStyle,
         opacity: isDragging ? 0.5 : .9,
+        cursor: 'move'
       }}
     >
       ♘

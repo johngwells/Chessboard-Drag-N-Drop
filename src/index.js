@@ -4,13 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// observe is set a subscription and watch for state changes 
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
+// observe is set a subscription and watch for state changes
 import { observe } from './components/Game';
 
 observe(knightPosition => {
   ReactDOM.render(
     <React.StrictMode>
-      <App knightPosition={knightPosition} />
+      <DndProvider backend={HTML5Backend}>
+        <App knightPosition={knightPosition} />
+      </DndProvider>
     </React.StrictMode>,
     document.getElementById('root')
   );

@@ -1,15 +1,12 @@
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-
 import { canMoveKnight, moveKnight } from './components/Game';
 
 import Knight from './components/Knight';
-import Square from './components/square';
+import Square from './components/Square';
 
-import './App.css'
+import './App.css';
 
 function handleClick(toX, toY) {
-  console.log({ toX, toY })
+  console.log({ toX, toY });
   if (canMoveKnight(toX, toY)) {
     moveKnight(toX, toY);
   }
@@ -24,16 +21,22 @@ function renderSquare(i, [knightX, knightY]) {
   const piece = isKnightHere ? <Knight /> : null;
 
   return (
-    <div onClick={() => handleClick(x, y)} key={i} style={{ flex: '1 0 12%',  width: '12.5vw', height: '12.5vh' }}>
-      <Square black={black}>{piece}</Square>
-    </div>
+
+      <div
+        onClick={() => handleClick(x, y)}
+        key={i}
+        style={{ flex: '1 0 12%', width: '12.5vw', height: '12.5vh' }}
+      >
+        <Square black={black}>{piece}</Square>
+      </div>
+
   );
 }
 
 export default function App({ knightPosition }) {
   const squares = [];
   for (let i = 0; i < 64; i++) {
-    squares.push(renderSquare(i, knightPosition))
+    squares.push(renderSquare(i, knightPosition));
   }
 
   return (
@@ -45,7 +48,7 @@ export default function App({ knightPosition }) {
         height: '100%'
       }}
     >
-    {squares}
+      {squares}
     </div>
   );
 }

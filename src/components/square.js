@@ -1,6 +1,6 @@
 export default function Square({ black, children }) {
-  const fill = black ? 'black' : 'white';
-  const stroke = black ? 'white' : 'black';
+  const fill = black ? '#4C3260' : '#EFEBE0';
+  const stroke = black ? '#EFEBE0' : '#4C3260';
 
   return (
     <div

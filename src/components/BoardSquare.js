@@ -34,7 +34,7 @@ export default function BoardSquare({ x, y, children }) {
             width: '100%',
             zIndex: 1,
             opacity: 0.5,
-            backgroundColor: 'yellow'
+            backgroundColor: '#E43480'
           }}
         />
       )}

@@ -7,23 +7,26 @@ const knightStyle = {
   alignItems: 'center',
   height: '100%',
   width: '100%',
-  fontSize: '7rem',
-}
+  fontSize: '7rem'
+};
 
 export default function Knight() {
-  const [{ isDragging }, drag] = useDrag(() => ({
-    type: ItemTypes.KNIGHT,
-    collect: monitor => ({
-      isDragging: !!monitor.isDragging()
-    })
-  }), []);
+  const [{ isDragging }, drag] = useDrag(
+    () => ({
+      type: ItemTypes.KNIGHT,
+      collect: monitor => ({
+        isDragging: !!monitor.isDragging()
+      })
+    }),
+    []
+  );
 
   return (
     <div
       ref={drag}
       style={{
         ...knightStyle,
-        opacity: isDragging ? 0.5 : .9,
+        opacity: isDragging ? 0.5 : 0.9,
         cursor: 'move'
       }}
     >
